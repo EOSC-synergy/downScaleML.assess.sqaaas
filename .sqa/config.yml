@@ -1,0 +1,42 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: release/2.0.0
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+    github.com/interTwin-eu/downScaleML:
+      branch: main
+      repo: https://github.com/interTwin-eu/downScaleML
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      github.com/interTwin-eu/downScaleML git:
+        commands:
+        - /usr/bin/env sh .sqa/script.scaly-rose-cuscus.sh
+        container: qc.acc_hasty-cream-lion
+  QC.Doc:
+    repos:
+      github.com/interTwin-eu/downScaleML find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.flabby-dandelion-cat.sh
+        container: qc.doc_stinky-brown-liger
+      github.com/interTwin-eu/downScaleML git:
+        commands:
+        - /usr/bin/env sh .sqa/script.nippy-orchid-heron.sh
+        container: qc.doc_tacky-cream-mandrill
+  QC.Lic:
+    repos:
+      github.com/interTwin-eu/downScaleML licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.pokey-aqua-wildebeest.sh
+        container: qc.lic_silly-cream-blue
+  QC.Ver:
+    repos:
+      github.com/interTwin-eu/downScaleML get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.trippy-ruby-kudu.sh
+        container: qc.ver_whiny-ultramarine-drever
+timeout: 5400
