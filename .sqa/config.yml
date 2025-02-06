@@ -2,7 +2,7 @@ config:
   credentials: []
   project_repos:
     github.com/EOSC-synergy/sqaaas-tooling:
-      branch: release/2.0.0
+      branch: main
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
     github.com/interTwin-eu/downScaleML:
       branch: main
@@ -15,28 +15,50 @@ sqa_criteria:
     repos:
       github.com/interTwin-eu/downScaleML git:
         commands:
-        - /usr/bin/env sh .sqa/script.scaly-rose-cuscus.sh
-        container: qc.acc_hasty-cream-lion
+        - /usr/bin/env sh .sqa/script.grumpy-puce-bongo.sh
+        container: qc.acc_snazzy-blue-dog
   QC.Doc:
     repos:
       github.com/interTwin-eu/downScaleML find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.flabby-dandelion-cat.sh
-        container: qc.doc_stinky-brown-liger
+        - /usr/bin/env sh .sqa/script.chewy-orange-lemming.sh
+        container: qc.doc_fuzzy-chartreuse-newfoundland
       github.com/interTwin-eu/downScaleML git:
         commands:
-        - /usr/bin/env sh .sqa/script.nippy-orchid-heron.sh
-        container: qc.doc_tacky-cream-mandrill
+        - /usr/bin/env sh .sqa/script.stealthy-russet-rabbit.sh
+        container: qc.doc_droopy-smalt-akita
+      github.com/interTwin-eu/downScaleML markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.foggy-apricot-budgerigar.sh
+        container: qc.doc_freaky-ecru-zebu
   QC.Lic:
     repos:
       github.com/interTwin-eu/downScaleML licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.pokey-aqua-wildebeest.sh
-        container: qc.lic_silly-cream-blue
+        - /usr/bin/env sh .sqa/script.skimpy-coral-terrier.sh
+        container: qc.lic_homely-cerulean-wombat
+  QC.Sec:
+    repos:
+      github.com/interTwin-eu/downScaleML bandit:
+        commands:
+        - /usr/bin/env sh .sqa/script.bumpy-ultramarine-reindeer.sh
+        container: qc.sec_cranky-red-angelfish
+  QC.Sty:
+    repos:
+      github.com/interTwin-eu/downScaleML flake8:
+        commands:
+        - /usr/bin/env sh .sqa/script.bumpy-firebrick-reindeer.sh
+        container: qc.sty_lanky-persimmon-chicken
+  QC.Uni:
+    repos:
+      github.com/interTwin-eu/downScaleML pytest:
+        commands:
+        - /usr/bin/env sh .sqa/script.randy-brass-paradise.sh
+        container: qc.uni_foggy-dandelion-slug
   QC.Ver:
     repos:
       github.com/interTwin-eu/downScaleML get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.trippy-ruby-kudu.sh
-        container: qc.ver_whiny-ultramarine-drever
+        - /usr/bin/env sh .sqa/script.snazzy-peach-camel.sh
+        container: qc.ver_skanky-ochre-tzu
 timeout: 5400
